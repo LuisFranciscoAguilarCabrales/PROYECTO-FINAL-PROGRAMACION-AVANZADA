@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Datos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      background-color: #4CAF50;
+      color: white;
+      padding: 1rem 0;
+      margin: 0;
+    }
+
+    section {
+      margin: 2rem auto;
+      padding: 1rem;
+      width: 90%;
+      max-width: 800px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      margin-top: 0;
+      color: #4CAF50;
+    }
+
+    form {
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    form input, form textarea, form button {
+      font-size: 1rem;
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    form button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #45a049;
+    }
+
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul li {
+      padding: 0.5rem;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    ul li button {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.6rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+      margin-left: 0.5rem;
+      border-radius: 4px;
+    }
+
+    ul li button:hover {
+      background-color: #d32f2f;
+    }
+
+    #buscarPanucho, #buscarCliente, #buscarEmpleado {
+      margin-right: 0.5rem;
+    }
+
+    #buscarPanuchoBtn, #buscarClienteBtn, #buscarEmpleadoBtn {
+      background-color: #2196F3;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1rem;
+      border-radius: 4px;
+    }
+
+    #buscarPanuchoBtn:hover, #buscarClienteBtn:hover, #buscarEmpleadoBtn:hover {
+      background-color: #1976D2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Gestión de Panuchos, Clientes y Empleados</h1>
+
+  <!-- Sección de Panuchos -->
+  <section>
+    <h2>Panuchos</h2>
+    <form id="panuchoForm">
+      <input type="text" id="panuchoNombre" placeholder="Nombre" required>
+      <textarea id="panuchoIngredientes" placeholder="Ingredientes" required></textarea>
+      <button type="submit">Agregar Panucho</button>
+    </form>
+
+    <h3>Buscar Panuchos</h3>
+    <input type="text" id="buscarPanucho" placeholder="Nombre del panucho">
+    <button id="buscarPanuchoBtn">Buscar</button>
+
+    <h3>Lista de Panuchos</h3>
+    <ul id="panuchoList"></ul>
+  </section>
+
+  <!-- Sección de Clientes -->
+  <section>
+    <h2>Clientes</h2>
+    <form id="clienteForm">
+      <input type="text" id="clienteNombre" placeholder="Nombre" required>
+      <input type="email" id="clienteCorreo" placeholder="Correo" required>
+      <button type="submit">Agregar Cliente</button>
+    </form>
+
+    <h3>Buscar Clientes</h3>
+    <input type="text" id="buscarCliente" placeholder="Nombre del cliente">
+    <button id="buscarClienteBtn">Buscar</button>
+
+    <h3>Lista de Clientes</h3>
+    <ul id="clienteList"></ul>
+
+  </section>
+
+  <!-- Sección de Empleados -->
+  <section>
+    <h2>Empleados</h2>
+    <form id="empleadoForm">
+      <input type="text" id="empleadoNombre" placeholder="Nombre" required>
+      <input type="text" id="empleadoPuesto" placeholder="Puesto" required>
+      <button type="submit">Agregar Empleado</button>
+    </form>
+
+    <h3>Buscar Empleados</h3>
+    <input type="text" id="buscarEmpleado" placeholder="Nombre del empleado">
+    <button id="buscarEmpleadoBtn">Buscar</button>
+
+    <h3>Lista de Empleados</h3>
+    <ul id="empleadoList"></ul>
+  </section>
+  <!-- Sección de pedidos -->
+  <section>
+    <h2>Pedidos</h2>
+    <form id="pedidoForm">
+      <select id="pedidoCliente" required>
+        <option value="" disabled selected>Selecciona un cliente</option>
+      </select>
+      <select id="pedidoPanucho" required>
+        <option value="" disabled selected>Selecciona un panucho</option>
+      </select>
+      <select id="pedidoEmpleado" required>
+        <option value="" disabled selected>Selecciona un empleado</option>
+      </select>
+      <input type="number" id="pedidoCantidad" placeholder="Cantidad" required>
+      <button type="submit">Crear Pedido</button>
+    </form>
+    <h3>Lista de Pedidos</h3>
+    <ul id="pedidoList"></ul>
+  </section>
+  
+
+  <script src="app.js"></script>
+</body>
+</html>
+
+
